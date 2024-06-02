@@ -1,6 +1,10 @@
 import pandas
 import logging
 from binance import Client
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 logging.basicConfig(
   filename='app.log',
