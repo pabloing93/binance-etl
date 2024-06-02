@@ -16,8 +16,8 @@ logging.basicConfig(
 class API:
   
   def __init__(self) -> None:
-    self.api_key = 'KFaHCpB2tABy1adqTqwMkY8Df4CFHEBJT537z5lXsdcfNUEld6UApytOH7rrGDy9'
-    self.secret_key = 'T1fyzT50zyY2tEDhm5KRVMdUzifvNCpGg5uQM81uKxGzpxsxGupGI2NkChTxCMcU'
+    self.api_key = os.getenv('BINANCE_API_KEY')
+    self.secret_key = os.getenv('BINANCE_SECRET_KEY')
     self.client = None
 
   def connect(self):
