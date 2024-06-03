@@ -21,8 +21,16 @@ if __name__ == '__main__':
 
   # Transforming the data to a Dataframe
   data = controller.transform(rawdata)
-
-  print(data)
  
+  #Creating a Database object
+
+  database = Database(
+    os.getenv()
+  )
+
+  database.connect()
+  database.load(data)
+  database.close_connection()
+
   # # Loading the data to the Database
   # controller.load(data)

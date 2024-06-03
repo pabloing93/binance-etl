@@ -33,7 +33,7 @@ class API:
 class ETL:
 
   def transform(self, rawdata:list):
-    keys = ['open_time', 'open', 'high', 'low', 'close', 'volume', 'close_time', 'quote_asset_volume', 'number_of_trades', 'taker_buy_base_asset_volume', 'taker_buy_quote_asset_volume', 'ignore']
+    keys = ['open_time', 'open', 'high', 'low', 'close', 'volume', 'close_time', 'quote_asset_volume', 'trades', 'taker_buy_base_asset_volume', 'taker_buy_quote_asset_volume', 'ignore']
     data_transformed = []
     for data in rawdata:
       data_dict = dict(zip(keys, data))
@@ -52,7 +52,7 @@ class ETL:
       'low': 'float',
       'close': 'float',
       'volume': 'float',
-      'number_of_trades': 'int',
+      'trades': 'int',
     })    
     return dataframe
 
