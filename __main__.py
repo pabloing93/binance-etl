@@ -3,7 +3,7 @@ from modules import ETL, API
 from dotenv import load_dotenv
 import os
 
-if __name__ == '__main__':
+def main():
   load_dotenv()
 
   # Creating an API object
@@ -34,3 +34,6 @@ if __name__ == '__main__':
 
   # # Loading the data to the Database
   # controller.load(data)
+
+if __name__ == '__main__':
+  main()
