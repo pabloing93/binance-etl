@@ -1,12 +1,13 @@
 import pandas
 import logging
 from binance import Client
-from datetime import datetime
+from sqlalchemy import create_engine
+import sqlalchemy
 
 logging.basicConfig(
   filename='app.log',
   filemode='a',
-  format='%(name)s - %(levelname)s - %(message)s',
+  format='%(asctime)s ::ClassesModule -> %(name)s - %(levelname)s - %(message)s',
   level=logging.INFO
 )
 
@@ -55,24 +56,42 @@ class ETL:
       'trades': 'int',
     })    
     return dataframe
-
-
-
-
-
-# class Database:
-#   def __init__(self, config: dict, schema: str) -> None:
-#     self.config = config
-#     self.schema = schema
   
-#   def connect(self):
-#     return 0
+class Database:
+  def __init__(self, config: dict) -> None:
+    self.host = config['host']
+    self.port = config['port']
+    self.user = config['user']
+    self.password = config['pass']
+    self.dbname = config['dbname']
+    self.schema = config['schema']
+    self.database = None
   
-#   def load(data):
-#     return 0
+  def connect(self):
+    try:
+      url = f'postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{self.dbname}'
+      self.database = sqlalchemy.create_engine(url)
+      logging.info(f'Connected to: {url}')
+    except Exception as error:
+      logging.error(f'Failed connecting: {error}')
   
-#   def close_connection():
-#     return 0
+  def load(self, data: pandas.DataFrame, table: str):
+    try:
+      data.to_sql(
+        table,
+        self.database,
+        schema=self.schema,
+        index=False
+      )
+      logging.info(f'{self.schema}.{table} has been uploaded')
+    except Exception as error:
+      logging.error(f'Cant execute the load: {error}')
+  
+  def close_connection(self):
+    try:
+      self.database.dispose()
+    except Exception as error:
+      logging.error(f'Cant dispose database: {error}')
     
 
 

@@ -10,3 +10,67 @@ root - ERROR - error trying get symbol ticker
 root - ERROR - error trying get symbol ticker
 root - ERROR - error trying get symbol ticker
 root - ERROR - error trying get symbol ticker
+root - ERROR - Failed connecting: create_engine() missing 1 required positional argument: 'url'
+root - ERROR - Failed connecting: Can't load plugin: sqlalchemy.dialects:postfresql.psycopg2
+2024-06-03 17:22:33,728 ::MainModule -> root - ERROR - Failed connecting: Can't load plugin: sqlalchemy.dialects:postfresql.psycopg2
+2024-06-03 17:23:30,824 ::ClassesModule -> root - ERROR - Failed connecting: Can't load plugin: sqlalchemy.dialects:postfresql.psycopg
+2024-06-03 17:25:04,449 ::ClassesModule -> root - ERROR - Failed connecting: Can't load plugin: sqlalchemy.dialects:postgresql.psycopg
+2024-06-03 17:26:14,120 ::ClassesModule -> root - INFO - postgresql+psycopg://None:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/None
+2024-06-03 17:26:14,176 ::ClassesModule -> root - ERROR - Failed connecting: Can't load plugin: sqlalchemy.dialects:postgresql.psycopg
+2024-06-03 17:27:39,964 ::ClassesModule -> root - INFO - postgresql+psycopg://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 17:27:40,014 ::ClassesModule -> root - ERROR - Failed connecting: Can't load plugin: sqlalchemy.dialects:postgresql.psycopg
+2024-06-03 17:29:06,726 ::ClassesModule -> root - INFO - postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 17:29:06,753 ::ClassesModule -> root - ERROR - Failed connecting: No module named 'psycopg2'
+2024-06-03 17:31:02,296 ::ClassesModule -> root - INFO - postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 17:31:02,387 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 17:51:21,379 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 17:51:45,680 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 18:01:38,227 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 18:02:33,947 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 18:02:33,970 ::ClassesModule -> root - ERROR - Cant execute the load: 'Engine' object has no attribute 'cursor'
+2024-06-03 18:10:44,372 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 18:10:44,380 ::ClassesModule -> root - ERROR - Cant execute the load: 'Engine' object has no attribute 'cursor'
+2024-06-03 18:15:20,193 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 18:15:36,088 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 18:15:36,088 ::ClassesModule -> root - ERROR - Cant execute the load: 'Engine' object has no attribute 'connection'
+2024-06-03 18:16:01,074 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 18:16:01,074 ::ClassesModule -> root - ERROR - Cant execute the load: 'Engine' object has no attribute 'connection'
+2024-06-03 18:16:49,138 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 18:16:52,323 ::ClassesModule -> root - ERROR - Cant execute the load: Execution failed on sql '
+        SELECT
+            name
+        FROM
+            sqlite_master
+        WHERE
+            type IN ('table', 'view')
+            AND name=?;
+        ': relation "sqlite_master" does not exist
+
+2024-06-03 18:21:52,130 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 18:21:55,402 ::ClassesModule -> root - ERROR - Cant execute the load: Execution failed on sql '
+        SELECT
+            name
+        FROM
+            sqlite_master
+        WHERE
+            type IN ('table', 'view')
+            AND name=?;
+        ': relation "sqlite_master" does not exist
+
+2024-06-03 18:24:58,357 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 18:24:58,365 ::ClassesModule -> root - ERROR - Cant execute the load: 'Engine' object has no attribute 'cursor'
+2024-06-03 18:25:24,794 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 18:25:24,794 ::ClassesModule -> root - ERROR - Cant execute the load: 'NoneType' object has no attribute 'connect'
+2024-06-03 18:26:46,997 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 18:26:50,349 ::ClassesModule -> root - ERROR - Cant execute the load: Execution failed on sql '
+        SELECT
+            name
+        FROM
+            sqlite_master
+        WHERE
+            type IN ('table', 'view')
+            AND name=?;
+        ': relation "sqlite_master" does not exist
+
+2024-06-03 18:27:35,461 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 18:27:35,469 ::ClassesModule -> root - ERROR - Cant execute the load: 'Engine' object has no attribute 'cursor'

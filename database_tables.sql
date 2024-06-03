@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS pabloing1993_coderhouse.bitcoin_candles;
 create table pabloing1993_coderhouse.bitcoin_candles(
 	open_time DATETIME,
 	open_price FLOAT,

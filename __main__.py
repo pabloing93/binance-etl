@@ -1,5 +1,5 @@
 
-from modules import ETL, API
+from modules import ETL, API, Database
 from dotenv import load_dotenv
 import os
 
@@ -24,13 +24,20 @@ def main():
  
   #Creating a Database object
 
-  database = Database(
-    os.getenv()
-  )
+  database_config = {
+    'host': os.getenv('REDSHIFT_HOST'),
+    'port': os.getenv('REDSHIFT_PORT'),
+    'user': os.getenv('REDSHIFT_USERNAME'),
+    'pass': os.getenv('REDSHIFT_PASS'),
+    'dbname': os.getenv('REDSHIFT_DBNAME'),
+    'schema': os.getenv('REDSHIFT_DATABASE'),
+  }
+
+  database = Database(database_config)
 
   database.connect()
-  database.load(data)
-  database.close_connection()
+  database.load(data, 'bitcoin_candles')
+  # database.close_connection()
 
   # # Loading the data to the Database
   # controller.load(data)
