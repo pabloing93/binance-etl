@@ -34,7 +34,7 @@ class API:
 class ETL:
 
   def transform(self, rawdata:list):
-    keys = ['open_time', 'open', 'high', 'low', 'close', 'volume', 'close_time', 'quote_asset_volume', 'trades', 'taker_buy_base_asset_volume', 'taker_buy_quote_asset_volume', 'ignore']
+    keys = ['open_time', 'open_price', 'high_price', 'low_price', 'close_price', 'volume', 'close_time', 'quote_asset_volume', 'trades', 'taker_buy_base_asset_volume', 'taker_buy_quote_asset_volume', 'ignore']
     data_transformed = []
     for data in rawdata:
       data_dict = dict(zip(keys, data))
@@ -48,10 +48,10 @@ class ETL:
     dataframe['open_time'] = pandas.to_datetime(dataframe['open_time'], unit='ms')
     dataframe['close_time'] = pandas.to_datetime(dataframe['close_time'], unit='ms')
     dataframe = dataframe.astype({
-      'open': 'float',
-      'high': 'float',
-      'low': 'float',
-      'close': 'float',
+      'open_price': 'float',
+      'high_price': 'float',
+      'low_price': 'float',
+      'close_price': 'float',
       'volume': 'float',
       'trades': 'int',
     })    
@@ -81,6 +81,7 @@ class Database:
         table,
         self.database,
         schema=self.schema,
+        if_exists='append',
         index=False
       )
       logging.info(f'{self.schema}.{table} has been uploaded')

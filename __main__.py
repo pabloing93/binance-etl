@@ -30,7 +30,7 @@ def main():
     'user': os.getenv('REDSHIFT_USERNAME'),
     'pass': os.getenv('REDSHIFT_PASS'),
     'dbname': os.getenv('REDSHIFT_DBNAME'),
-    'schema': os.getenv('REDSHIFT_DATABASE'),
+    'schema': os.getenv('REDSHIFT_SCHEMA'),
   }
 
   database = Database(database_config)
