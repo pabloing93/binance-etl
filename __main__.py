@@ -1,23 +1,28 @@
-# TODO: Encapsular las clases y delegar la responsabildiad al controlador de obtener los datos
-# TODO: Utilizar este archivo como controlador y pasar los datos a las clases 
-# TODO: La responsabilidad de las clases solamente es la de definir métodos. El controlador es quien las manipula.
 
-
-from modules import ETL
+from modules import ETL, API
+from dotenv import load_dotenv
+import os
 
 if __name__ == '__main__':
+  load_dotenv()
+
+  # Creating an API object
+  binance_api = API(
+    os.getenv('BINANCE_API_KEY'),
+    os.getenv('BINANCE_SECRET_KEY')
+  )
+  binance_api.connect()
+
+  #Extracting the rawdata
+  rawdata = binance_api.get_info('BTCUSDT')
 
   # Creating new ETL controller 
   controller = ETL()
-  
-  # Extracting the data from the API
-  rawdata = controller.extract()
-  print(rawdata)
 
   # Transforming the data to a Dataframe
   data = controller.transform(rawdata)
 
   print(data)
-  
+ 
   # # Loading the data to the Database
   # controller.load(data)
