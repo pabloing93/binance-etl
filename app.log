@@ -86,3 +86,5 @@ LINE 1: INSERT INTO bitcoin_candles (open_time, open, high, low, clo...
 (Background on this error at: https://sqlalche.me/e/14/f405)
 2024-06-03 19:36:44,162 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
 2024-06-03 19:37:01,796 ::ClassesModule -> root - INFO - None.bitcoin_candles has been uploaded
+2024-06-03 19:40:50,889 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
+2024-06-03 19:44:47,777 ::ClassesModule -> root - INFO - pabloing1993_coderhouse.bitcoin_candles has been uploaded
