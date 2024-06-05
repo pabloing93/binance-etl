@@ -37,10 +37,7 @@ def main():
 
   database.connect()
   database.load(data, 'bitcoin_candles')
-  # database.close_connection()
-
-  # # Loading the data to the Database
-  # controller.load(data)
+  database.close_connection()
 
 if __name__ == '__main__':
   main()

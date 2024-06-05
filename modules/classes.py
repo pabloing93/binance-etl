@@ -70,7 +70,7 @@ class Database:
   def connect(self):
     try:
       url = f'postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{self.dbname}'
-      self.database = sqlalchemy.create_engine(url)
+      self.database = create_engine(url)
       logging.info(f'Connected to: {url}')
     except Exception as error:
       logging.error(f'Failed connecting: {error}')
@@ -93,11 +93,3 @@ class Database:
       self.database.dispose()
     except Exception as error:
       logging.error(f'Cant dispose database: {error}')
-    
-
-
-  
-  # database = Database()
-  # database.connect()
-  # database.load(data)
-  # database.close_connection()
