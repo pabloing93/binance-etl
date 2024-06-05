@@ -91,5 +91,6 @@ class Database:
   def close_connection(self):
     try:
       self.database.dispose()
+      logging.info('Database disposed')
     except Exception as error:
       logging.error(f'Cant dispose database: {error}')
