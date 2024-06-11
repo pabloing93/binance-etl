@@ -35,9 +35,10 @@ def main():
 
   database = Database(database_config)
 
-  database.connect()
-  database.load(data, 'bitcoin_candles')
-  database.close_connection()
+  if (database.connect()):
+    database.load(data, 'bitcoin_candles')
+    database.close_connection()
+  
 
 if __name__ == '__main__':
   main()

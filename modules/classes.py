@@ -72,8 +72,10 @@ class Database:
       url = f'postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{self.dbname}'
       self.database = create_engine(url)
       logging.info(f'Connected to: {url}')
+      return True
     except Exception as error:
       logging.error(f'Failed connecting: {error}')
+      return False
   
   def load(self, data: pandas.DataFrame, table: str):
     try:
