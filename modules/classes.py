@@ -2,7 +2,6 @@ import pandas
 import logging
 from binance import Client
 from sqlalchemy import create_engine
-import sqlalchemy
 
 logging.basicConfig(
   filename='app.log',
@@ -18,22 +17,23 @@ class API:
     self.secret_key = secret_key
     self.client = None
 
-  def connect(self):
+  def connect(self) -> None:
     try:
       self.client = Client(self.api_key, self.secret_key)
+      logging.info('the API connection has been established')
     except:
       logging.error('connecting with API')
 
-  def get_info(self, symbol:str):
+  def get_info(self, symbol:str) -> list:
     try:
-      # return self.client.get_ticker(symbol=symbol)
-      return self.client.get_historical_klines(symbol=symbol, interval='1d')
+      info = self.client.get_historical_klines(symbol=symbol, interval='1d')
+      return info
     except:
       logging.error('getting symbol ticker')
 
 class ETL:
 
-  def transform(self, rawdata:list):
+  def transform(self, rawdata:list) -> pandas.DataFrame:
     keys = ['open_time', 'open_price', 'high_price', 'low_price', 'close_price', 'volume', 'close_time', 'quote_asset_volume', 'trades', 'taker_buy_base_asset_volume', 'taker_buy_quote_asset_volume', 'ignore']
     data_transformed = []
     for data in rawdata:
@@ -67,7 +67,7 @@ class Database:
     self.schema = config['schema']
     self.database = None
   
-  def connect(self):
+  def connect(self) -> bool:
     try:
       url = f'postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{self.dbname}'
       self.database = create_engine(url)
@@ -77,7 +77,7 @@ class Database:
       logging.error(f'Failed connecting: {error}')
       return False
   
-  def load(self, data: pandas.DataFrame, table: str):
+  def load(self, data: pandas.DataFrame, table: str) -> None:
     try:
       data.to_sql(
         table,
@@ -90,7 +90,7 @@ class Database:
     except Exception as error:
       logging.error(f'Cant execute the load: {error}')
   
-  def close_connection(self):
+  def close_connection(self) -> None:
     try:
       self.database.dispose()
       logging.info('Database disposed')
