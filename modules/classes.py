@@ -26,7 +26,7 @@ class API:
 
   def get_info(self, symbol:str) -> list:
     try:
-      info = self.client.get_historical_klines(symbol=symbol, interval='1d')
+      info = self.client.get_historical_klines(symbol=symbol, interval='1d', limit=100)
       return info
     except:
       logging.error('getting symbol ticker')
@@ -56,6 +56,24 @@ class ETL:
       'trades': 'int',
     })    
     return dataframe
+  
+  def clean(self, data:pandas.DataFrame) -> pandas.DataFrame:
+    try: 
+      clean_data = data.copy()
+      # Nan handling
+      clean_data.dropna(subset=['open_time', 'volume','close_time' ,'trades'], inplace=True)
+      # Duplicates handling
+      clean_data.drop_duplicates(inplace=True)
+      # Prices imputation
+
+      prices_columns = ['open_price', 'high_price', 'low_price', 'close_price']
+      for column in prices_columns:
+        mean = clean_data[column].mean()
+        clean_data[column].fillna(value=mean, inplace=True)
+      logging.info(f'Clean process has done')
+      return clean_data
+    except Exception as error:
+      logging.error(f'Clean process has failed: {error}')
   
 class Database:
   def __init__(self, config: dict) -> None:

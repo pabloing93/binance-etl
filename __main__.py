@@ -21,9 +21,11 @@ def main():
 
   # Transforming the data to a Dataframe
   data = controller.transform(rawdata)
+
+  # Cleaning the data
+  data = controller.clean(data)
  
   #Creating a Database object
-
   database_config = {
     'host': os.getenv('REDSHIFT_HOST'),
     'port': os.getenv('REDSHIFT_PORT'),

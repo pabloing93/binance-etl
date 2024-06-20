@@ -91,3 +91,8 @@ LINE 1: INSERT INTO bitcoin_candles (open_time, open, high, low, clo...
 
 2024-06-05 19:57:49,573 ::ClassesModule -> root - INFO - Connected to: postgresql+psycopg2://pabloing1993_coderhouse:114SU7sc8E@data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com:5439/data-engineer-database
 2024-06-05 20:01:38,576 ::ClassesModule -> root - INFO - pabloing1993_coderhouse.bitcoin_candles has been uploaded
+2024-06-19 19:56:53,027 ::ClassesModule -> root - INFO - the API connection has been established
+2024-06-19 20:06:10,024 ::ClassesModule -> root - INFO - the API connection has been established
+2024-06-19 23:22:44,371 ::ClassesModule -> root - INFO - the API connection has been established
+2024-06-19 23:25:07,974 ::ClassesModule -> root - INFO - the API connection has been established
+2024-06-19 23:25:08,632 ::ClassesModule -> root - INFO - Clean process has done
