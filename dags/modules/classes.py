@@ -26,7 +26,7 @@ class API:
 
   def get_info(self, symbol:str) -> list:
     try:
-      info = self.client.get_historical_klines(symbol=symbol, interval='1d', limit=100)
+      info = self.client.get_historical_klines(symbol=symbol, interval='1d', limit=1)
       return info
     except:
       logging.error('getting symbol ticker')

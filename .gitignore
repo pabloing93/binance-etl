@@ -1,4 +1,4 @@
-__pycache__/
-.venv/
+dags/__pycache__/
+dags/.venv/
 .env
-app.log
+dags/app.log
