@@ -1,0 +1,49 @@
+[2024-07-03T23:47:18.878+0000] {processor.py:161} INFO - Started process (PID=63) to work on /opt/airflow/dags/main.py
+[2024-07-03T23:47:18.880+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-07-03T23:47:18.883+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:47:18.882+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-07-03T23:47:21.103+0000] {processor.py:840} INFO - DAG(s) 'Binance_ETL' retrieved from /opt/airflow/dags/main.py
+[2024-07-03T23:47:21.923+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:47:21.922+0000] {override.py:1829} INFO - Created Permission View: can read on DAG:Binance_ETL
+[2024-07-03T23:47:21.949+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:47:21.949+0000] {override.py:1829} INFO - Created Permission View: can edit on DAG:Binance_ETL
+[2024-07-03T23:47:21.962+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:47:21.962+0000] {override.py:1829} INFO - Created Permission View: can delete on DAG:Binance_ETL
+[2024-07-03T23:47:21.964+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:47:21.963+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-07-03T23:47:21.992+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:47:21.992+0000] {dag.py:3118} INFO - Creating ORM DAG for Binance_ETL
+[2024-07-03T23:47:22.015+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:47:22.015+0000] {dag.py:3954} INFO - Setting next_dagrun for Binance_ETL to 2024-07-02 00:00:00+00:00, run_after=2024-07-03 00:00:00+00:00
+[2024-07-03T23:47:22.063+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 3.198 seconds
+[2024-07-03T23:47:52.281+0000] {processor.py:161} INFO - Started process (PID=72) to work on /opt/airflow/dags/main.py
+[2024-07-03T23:47:52.283+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-07-03T23:47:52.297+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:47:52.291+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-07-03T23:47:55.406+0000] {processor.py:840} INFO - DAG(s) 'Binance_ETL' retrieved from /opt/airflow/dags/main.py
+[2024-07-03T23:47:55.441+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:47:55.441+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-07-03T23:47:55.465+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:47:55.464+0000] {dag.py:3954} INFO - Setting next_dagrun for Binance_ETL to 2024-07-02 00:00:00+00:00, run_after=2024-07-03 00:00:00+00:00
+[2024-07-03T23:47:55.489+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 3.233 seconds
+[2024-07-03T23:48:25.636+0000] {processor.py:161} INFO - Started process (PID=81) to work on /opt/airflow/dags/main.py
+[2024-07-03T23:48:25.637+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-07-03T23:48:25.642+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:48:25.641+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-07-03T23:48:27.765+0000] {processor.py:840} INFO - DAG(s) 'Binance_ETL' retrieved from /opt/airflow/dags/main.py
+[2024-07-03T23:48:27.872+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:48:27.871+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-07-03T23:48:27.938+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:48:27.937+0000] {dag.py:3954} INFO - Setting next_dagrun for Binance_ETL to 2024-07-02 00:00:00+00:00, run_after=2024-07-03 00:00:00+00:00
+[2024-07-03T23:48:28.001+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 2.372 seconds
+[2024-07-03T23:48:58.247+0000] {processor.py:161} INFO - Started process (PID=89) to work on /opt/airflow/dags/main.py
+[2024-07-03T23:48:58.248+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-07-03T23:48:58.251+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:48:58.250+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-07-03T23:49:00.367+0000] {processor.py:840} INFO - DAG(s) 'Binance_ETL' retrieved from /opt/airflow/dags/main.py
+[2024-07-03T23:49:00.400+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:49:00.400+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-07-03T23:49:00.435+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:49:00.435+0000] {dag.py:3954} INFO - Setting next_dagrun for Binance_ETL to 2024-07-03 00:00:00+00:00, run_after=2024-07-04 00:00:00+00:00
+[2024-07-03T23:49:00.474+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 2.236 seconds
+[2024-07-03T23:49:30.709+0000] {processor.py:161} INFO - Started process (PID=98) to work on /opt/airflow/dags/main.py
+[2024-07-03T23:49:30.710+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-07-03T23:49:30.713+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:49:30.713+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-07-03T23:49:31.828+0000] {processor.py:840} INFO - DAG(s) 'Binance_ETL' retrieved from /opt/airflow/dags/main.py
+[2024-07-03T23:49:31.857+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:49:31.856+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-07-03T23:49:31.881+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:49:31.881+0000] {dag.py:3954} INFO - Setting next_dagrun for Binance_ETL to 2024-07-03 00:00:00+00:00, run_after=2024-07-04 00:00:00+00:00
+[2024-07-03T23:49:31.906+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.203 seconds
+[2024-07-03T23:50:01.998+0000] {processor.py:161} INFO - Started process (PID=107) to work on /opt/airflow/dags/main.py
+[2024-07-03T23:50:01.999+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-07-03T23:50:02.002+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:50:02.001+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2024-07-03T23:50:03.571+0000] {processor.py:840} INFO - DAG(s) 'Binance_ETL' retrieved from /opt/airflow/dags/main.py
+[2024-07-03T23:50:03.597+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:50:03.597+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-07-03T23:50:03.621+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:50:03.621+0000] {dag.py:3954} INFO - Setting next_dagrun for Binance_ETL to 2024-07-03 00:00:00+00:00, run_after=2024-07-04 00:00:00+00:00
+[2024-07-03T23:50:03.677+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 1.689 seconds
+[2024-07-03T23:50:33.941+0000] {processor.py:161} INFO - Started process (PID=121) to work on /opt/airflow/dags/main.py
+[2024-07-03T23:50:33.943+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2024-07-03T23:50:33.946+0000] {logging_mixin.py:188} INFO - [2024-07-03T23:50:33.946+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
