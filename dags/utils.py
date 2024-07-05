@@ -1,10 +1,26 @@
 from modules import ETL, API, Database
 from dotenv import load_dotenv
 import os
+import pandas
 # global rawdata
 # global clean_data
 
 load_dotenv()
+RAW_DATA_PATH = 'data.csv'
+CLEAN_DATA_PATH = 'clean_data.csv'
+
+def get_data(path):
+    try:
+        return pandas.read_csv(path, sep=';')
+    except Exception as error:
+        print(f'Error in get_data: {error}')
+
+def save_data(path, data):
+    try:
+        data.to_csv(path, sep=';', index=False)
+        print('Data saved')
+    except Exception as error:
+        print(f'Error in save_data: {error}')
 
 def extract_data():
     print('exctract_data_execution')
@@ -18,24 +34,27 @@ def extract_data():
     binance_api.connect()
 
     #Extracting the rawdata
-    global rawdata
     rawdata = binance_api.get_info('BTCUSDT')
+    # Store rawdata as csv
     print(rawdata)
-    print('cambios')
+    controller = ETL()
+    data = controller.transform(rawdata)
+    print(data)
+    save_data(RAW_DATA_PATH, data)
     
 
 def transform_data():
     print('transform_data_execution')
-    # # Creating new ETL controller 
-    controller = ETL()
 
-    # Transforming the data to a Dataframe
-    data = controller.transform(rawdata)
-
+    data = get_data(RAW_DATA_PATH)
     # # Cleaning the data
-    global clean_data
+    print(data)
+    controller = ETL()
     clean_data = controller.clean(data)
-    print('cambios')
+
+    save_data(CLEAN_DATA_PATH, clean_data)
+    print(clean_data)
+    
 
 def load_data():
     print('load_data_execution')
@@ -50,6 +69,7 @@ def load_data():
     }
 
     database = Database(database_config)
+    clean_data = get_data(CLEAN_DATA_PATH)
     database.load(clean_data, 'bitcoin_candles')
     database.close_connection
     print('cambios')

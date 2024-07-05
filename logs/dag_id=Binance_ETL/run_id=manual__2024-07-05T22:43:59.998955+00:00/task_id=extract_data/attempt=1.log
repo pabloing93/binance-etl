@@ -1,0 +1,28 @@
+[2024-07-05T22:44:03.395+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-05T22:44:03.426+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Binance_ETL.extract_data manual__2024-07-05T22:43:59.998955+00:00 [queued]>
+[2024-07-05T22:44:03.437+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Binance_ETL.extract_data manual__2024-07-05T22:43:59.998955+00:00 [queued]>
+[2024-07-05T22:44:03.438+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 6
+[2024-07-05T22:44:03.460+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): extract_data> on 2024-07-05 22:43:59.998955+00:00
+[2024-07-05T22:44:03.467+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=596) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-05T22:44:03.469+0000] {standard_task_runner.py:63} INFO - Started process 599 to run task
+[2024-07-05T22:44:03.470+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Binance_ETL', 'extract_data', 'manual__2024-07-05T22:43:59.998955+00:00', '--job-id', '62', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmp9rj7e1g0']
+[2024-07-05T22:44:03.476+0000] {standard_task_runner.py:91} INFO - Job 62: Subtask extract_data
+[2024-07-05T22:44:03.525+0000] {task_command.py:426} INFO - Running <TaskInstance: Binance_ETL.extract_data manual__2024-07-05T22:43:59.998955+00:00 [running]> on host 857724e1ef46
+[2024-07-05T22:44:03.658+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Pabloing' AIRFLOW_CTX_DAG_ID='Binance_ETL' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2024-07-05T22:43:59.998955+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-05T22:43:59.998955+00:00'
+[2024-07-05T22:44:03.659+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-05T22:44:03.678+0000] {logging_mixin.py:188} INFO - exctract_data_execution
+[2024-07-05T22:44:05.307+0000] {classes.py:23} INFO - the API connection has been established
+[2024-07-05T22:44:06.030+0000] {logging_mixin.py:188} INFO - [[1720137600000, '57050.02000000', '57546.00000000', '53485.93000000', '56590.01000000', '80449.99830000', 1720223999999, '4464104077.01318170', 3696268, '37490.25843000', '2079934711.22064510', '0']]
+[2024-07-05T22:44:06.149+0000] {logging_mixin.py:188} INFO -    open_time  open_price  ...              close_time   trades
+0 2024-07-05    57050.02  ... 2024-07-05 23:59:59.999  3696268
+
+[1 rows x 8 columns]
+[2024-07-05T22:44:06.160+0000] {logging_mixin.py:188} INFO - Error in save_raw_data: [Errno 13] Permission denied: './raw_data/data.csv'
+[2024-07-05T22:44:06.161+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-07-05T22:44:06.162+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-05T22:44:06.176+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=Binance_ETL, task_id=extract_data, run_id=manual__2024-07-05T22:43:59.998955+00:00, execution_date=20240705T224359, start_date=20240705T224403, end_date=20240705T224406
+[2024-07-05T22:44:06.215+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-07-05T22:44:06.263+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-07-05T22:44:06.264+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
