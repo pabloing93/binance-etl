@@ -2,6 +2,8 @@ import pandas
 import logging
 from binance import Client
 from sqlalchemy import create_engine
+import psycopg2
+from psycopg2.extras import execute_values
 
 logging.basicConfig(
   filename='app.log',
@@ -87,8 +89,17 @@ class Database:
   
   def connect(self) -> bool:
     try:
-      url = f'postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{self.dbname}'
-      self.database = create_engine(url)
+      #This isnt persist
+      url = f'postgresql://{self.user}:{self. password}@{self.host}:{self.port}/{self.dbname}'
+      print(url)
+      # self.database = create_engine(url)
+      self.database = psycopg2.connect(
+        host=self.host,
+        dbname=self.dbname,
+        user=self.user,
+        password=self.password,
+        port=self.port
+      )
       logging.info(f'Connected to: {url}')
       return True
     except Exception as error:
@@ -97,13 +108,23 @@ class Database:
   
   def load(self, data: pandas.DataFrame, table: str) -> None:
     try:
-      data.to_sql(
-        table,
-        self.database,
-        schema=self.schema,
-        if_exists='append',
-        index=False
+      database = psycopg2.connect(
+        host=self.host,
+        dbname=self.dbname,
+        user=self.user,
+        password=self.password,
+        port=self.port
       )
+      cursor = database.cursor()
+      query = f"INSERT INTO pabloing1993_coderhouse.bitcoin_candles (open_time, open_price, high_price, low_price, close_price, volume, close_time, trades) VALUES %s" 
+      values = [tuple(row) for row in data.to_numpy()]
+      cursor.execute("BEGIN")
+      execute_values(
+        cursor,
+        query,
+        values
+      )
+      cursor.execute("COMMIT")
       logging.info(f'{self.schema}.{table} has been uploaded')
     except Exception as error:
       logging.error(f'Cant execute the load: {error}')
