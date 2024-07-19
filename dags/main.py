@@ -10,7 +10,7 @@ from airflow.operators.python_operator import PythonOperator
 # Setting DAGs
 default_args = {
   'owner': 'Pabloing',
-  'start_date': datetime(2024,6,25),
+  'start_date': datetime(2024,7,19),
   'retries': 5,
   'retry_delay': timedelta(minutes=5)
 }
@@ -19,7 +19,7 @@ ETL_dag = DAG(
   dag_id = 'Binance_ETL',
   default_args = default_args,
   description = 'Bitcoin ETL Daily process',
-  schedule_interval = '@daily',
+  schedule_interval = '@hourly',
   catchup=False
 )
 
@@ -43,5 +43,6 @@ load_task = PythonOperator(
   dag = ETL_dag
 )
 
+# extract_task
 extract_task >> transform_task >> load_task
     

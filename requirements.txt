@@ -29,3 +29,5 @@ ujson==5.10.0
 urllib3==2.2.1
 websockets==12.0
 yarl==1.9.4
+lxml
+beautifulsoup4

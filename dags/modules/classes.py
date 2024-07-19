@@ -4,6 +4,8 @@ from binance import Client
 from sqlalchemy import create_engine
 import psycopg2
 from psycopg2.extras import execute_values
+# from datetime import datetime
+# import pytz
 
 logging.basicConfig(
   filename='app.log',
@@ -28,7 +30,7 @@ class API:
 
   def get_info(self, symbol:str) -> list:
     try:
-      info = self.client.get_historical_klines(symbol=symbol, interval='1d', limit=1)
+      info = self.client.get_historical_klines(symbol=symbol, interval='1h', limit=1)
       return info
     except:
       logging.error('getting symbol ticker')
@@ -36,7 +38,8 @@ class API:
 class ETL:
 
   def transform(self, rawdata:list) -> pandas.DataFrame:
-    keys = ['open_time', 'open_price', 'high_price', 'low_price', 'close_price', 'volume', 'close_time', 'quote_asset_volume', 'trades', 'taker_buy_base_asset_volume', 'taker_buy_quote_asset_volume', 'ignore']
+    logging.info('THE RAWDATA:', rawdata)
+    keys = ['open_time', 'open_price', 'high_price', 'low_price', 'close_price', 'volume', 'close_time', 'quote_asset_volume', 'trades', 'taker_buy_base_asset_volume', 'taker_buy_quote_asset_volume', 'ignore', 'trend', 'load_time']
     data_transformed = []
     for data in rawdata:
       data_dict = dict(zip(keys, data))
@@ -47,8 +50,10 @@ class ETL:
       columns=['quote_asset_volume', 'taker_buy_base_asset_volume', 'taker_buy_quote_asset_volume', 'ignore'], 
       inplace=True
     )
-    dataframe['open_time'] = pandas.to_datetime(dataframe['open_time'], unit='ms')
-    dataframe['close_time'] = pandas.to_datetime(dataframe['close_time'], unit='ms')
+    # dataframe['load_time'] = pandas.to_datetime(get_current_time(), unit='ms')
+    dataframe['load_time'] = pandas.to_datetime(dataframe['load_time'])
+    dataframe['open_time'] = pandas.to_datetime(dataframe['open_time'])
+    dataframe['close_time'] = pandas.to_datetime(dataframe['close_time'])
     dataframe = dataframe.astype({
       'open_price': 'float',
       'high_price': 'float',
@@ -56,6 +61,7 @@ class ETL:
       'close_price': 'float',
       'volume': 'float',
       'trades': 'int',
+      'trend': 'object'
     })    
     return dataframe
   
@@ -116,7 +122,7 @@ class Database:
         port=self.port
       )
       cursor = database.cursor()
-      query = f"INSERT INTO pabloing1993_coderhouse.bitcoin_candles (open_time, open_price, high_price, low_price, close_price, volume, close_time, trades) VALUES %s" 
+      query = f"INSERT INTO pabloing1993_coderhouse.bitcoin_candles (open_time, open_price, high_price, low_price, close_price, volume, close_time, trades, trend, load_time) VALUES %s" 
       values = [tuple(row) for row in data.to_numpy()]
       cursor.execute("BEGIN")
       execute_values(
