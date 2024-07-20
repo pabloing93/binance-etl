@@ -1,4 +1,4 @@
-from utils import extract_data, transform_data, load_data
+from utils import extract_data, transform_data, load_data, send_email
 import os
 
 # For DAGs managment
@@ -43,6 +43,13 @@ load_task = PythonOperator(
   dag = ETL_dag
 )
 
+send_notification = PythonOperator(
+  task_id = 'email_notification',
+  python_callable = send_email,
+  dag = ETL_dag,
+  provide_context = True
+)
+
 # extract_task
-extract_task >> transform_task >> load_task
+extract_task >> transform_task >> load_task >> send_notification
     

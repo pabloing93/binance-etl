@@ -6,6 +6,9 @@ from bs4 import BeautifulSoup
 import requests
 from datetime import datetime
 import pytz
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import smtplib
 # global rawdata
 # global clean_data
 
@@ -121,19 +124,42 @@ def transform_data():
     
 
 def load_data():
-    print('load_data_execution')
-    # #Creating a Database object
-    database_config = {
-        'host': os.getenv('REDSHIFT_HOST'),
-        'port': os.getenv('REDSHIFT_PORT'),
-        'user': os.getenv('REDSHIFT_USERNAME'),
-        'pass': os.getenv('REDSHIFT_PASS'),
-        'dbname': os.getenv('REDSHIFT_DBNAME'),
-        'schema': os.getenv('REDSHIFT_SCHEMA')
-    }
+  print('load_data_execution')
+  # #Creating a Database object
+  database_config = {
+    'host': os.getenv('REDSHIFT_HOST'),
+    'port': os.getenv('REDSHIFT_PORT'),
+    'user': os.getenv('REDSHIFT_USERNAME'),
+    'pass': os.getenv('REDSHIFT_PASS'),
+    'dbname': os.getenv('REDSHIFT_DBNAME'),
+    'schema': os.getenv('REDSHIFT_SCHEMA')
+  }
 
-    database = Database(database_config)
-    clean_data = get_data(CLEAN_DATA_PATH)
-    database.load(clean_data, 'bitcoin_candles')
-    database.close_connection
-    print('cambios')
+  database = Database(database_config)
+  clean_data = get_data(CLEAN_DATA_PATH)
+  database.load(clean_data, 'bitcoin_candles')
+  database.close_connection
+  print('cambios')
+
+def send_email():
+  from_address = os.getenv('EMAIL_FROM')
+  password = os.getenv('EMAIL_PASS')
+  to_address = os.getenv('EMAIL_TO')
+  
+  message = MIMEMultipart()
+  message['from'] = from_address
+  message['to'] = to_address
+  message['subject'] = 'Airflow notifications'
+  
+  message.attach(MIMEText('A new record has been created!', 'plain'))
+  
+  try:
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(from_address, password)
+    text = message.as_string()
+    server.sendmail(from_address, to_address, text)
+    server.quit()
+    print('Email sended!')
+  except Exception as error:
+    print('There was an error sending notification: ', error)
