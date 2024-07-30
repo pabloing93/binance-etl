@@ -1,5 +1,5 @@
-# binance-etl
-An ETL Project that extract binance BTC information.
+# Bitcoin ETL for making decision
+An ETL Project that extract binance BTC information for making decision
 
 
-![Extract](https://github.com/user-attachments/assets/63355715-f06d-4fa2-9fc1-0094e6946a8f)
+![ETL PROJECT](https://github.com/user-attachments/assets/4c4b1e68-270f-4be7-b0bc-5702152276d2)
